@@ -1,15 +1,13 @@
-width = int(input())  # the number of cells on the X axis
-height = int(input())  # the number of cells on the Y axis
+width, height = int(input()), int(input())
 
 # Get the grid
 grid = [ list( x for x in input() ) for y in range(height) ]
 
 # Save all nodes from grid into the list
-nodes = list()
-for y in range(height):
-    for x in range(width):
-        if grid[y][x] == '0':
-            nodes.append(tuple([x, y]))
+nodes = [(x, y)
+    for x in range(width)
+    for y in range(height)
+    if grid[y][x] == '0']
 
 for n in nodes:
     x2, y2, x3, y3  = ['-1 '] * 4
